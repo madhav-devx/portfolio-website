@@ -30,3 +30,29 @@ document.querySelector(".demo-link").addEventListener("click", (event) => {
   event.preventDefault();
   alert("Add your live project URL to this button in index.html.");
 });
+
+
+// Animated Skills Progress Bars
+
+const skillSection = document.querySelector("#skills");
+
+if (skillSection) {
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const skillBars = skillSection.querySelectorAll(".skill-progress");
+
+        skillBars.forEach((bar) => {
+          bar.style.setProperty("--skill-level", bar.dataset.level);
+          bar.classList.add("animate");
+        });
+
+        skillObserver.unobserve(skillSection);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  skillObserver.observe(skillSection);
+}

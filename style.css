@@ -75,3 +75,56 @@ h2{font-size:clamp(38px,5vw,58px);font-weight:600}.muted{color:#626979}
 .orb-main {
     display: none;
 }
+
+/* Animated Skills Section */
+
+.animated-skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 50px;
+  margin-top: 50px;
+}
+
+.animated-skill {
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.skill-info span:last-child {
+  color: var(--accent, #a78bfa);
+}
+
+.skill-track {
+  width: 100%;
+  height: 9px;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  width: 0;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #8b5cf6, #22d3ee);
+  transition: width 1.5s ease;
+}
+
+.skill-progress.animate {
+  width: var(--skill-level);
+}
+
+@media (max-width: 650px) {
+  .animated-skills {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
